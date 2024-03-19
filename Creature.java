@@ -67,6 +67,7 @@ public abstract class Creature {
     //how wide the steps are
     protected int stepLen;
 
+
     public Creature(int x, int y, City cty){
         point = new GridPoint(x,y);
         city = cty;
@@ -97,8 +98,36 @@ public abstract class Creature {
     }
 
     //BEGIN TODO: any additional methods you may need
-    //step()
-    //takeAction();
+    public void step() {
+        if (dir == NORTH) {
+            if(point.y-stepLen < 0)
+                point.y = 80 - Math.abs(point.y-stepLen);
+            else
+                point.y -= stepLen;
+        } else if(dir == EAST) {
+            if(point.x + stepLen >= 80)
+                point.x = 0 + Math.abs(80-(point.x + stepLen));
+            else
+                point.x += stepLen;
+        } else if (dir == SOUTH) {
+            if(point.y+stepLen >= 80)
+                point.y = 0 + Math.abs(80-(point.y + stepLen));
+            else 
+                point.y += stepLen;
+        } else if(dir == WEST){
+            if(point.x-stepLen < 0)
+                point.x = 80 - Math.abs(point.x-stepLen);
+            else 
+                point.x -= stepLen;
+        }
+
+    }
+
+    public abstract void takeAction();
+
+    public void setDir(int d){
+        this.dir = d;
+    }
     //END TODO
 
 
