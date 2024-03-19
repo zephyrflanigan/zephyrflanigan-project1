@@ -34,11 +34,11 @@ public class Simulator {
 
         while (count < rounds) {
             count++;
+            //adds Cat and Mice
             if(count % 25 == 0) 
                 city.addCat();
             else if (count % 100 == 0)
                 city.addMouse();
-            //rounds++;
             //TODO...
             //
             // Every N rounds, add a mouse

@@ -99,6 +99,8 @@ public abstract class Creature {
 
     //BEGIN TODO: any additional methods you may need
     public void step() {
+
+        //if statements account for wrapping
         if (dir == NORTH) {
             if(point.y-stepLen < 0)
                 point.y = 80 - Math.abs(point.y-stepLen);
@@ -125,6 +127,7 @@ public abstract class Creature {
 
     public abstract void takeAction();
 
+    //setter method for direction
     public void setDir(int d){
         this.dir = d;
     }
